@@ -1,0 +1,45 @@
+{
+  "name": "otokar-dapr-ecommerce-demo",
+  "version": "1.0.0",
+  "description": "Comprehensive Dapr microservices e-commerce demonstration",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm run install:user && npm run install:product && npm run install:order && npm run install:payment && npm run install:inventory && npm run install:notification",
+    "install:user": "cd services/user-service && npm install",
+    "install:product": "cd services/product-service && npm install",
+    "install:order": "cd services/order-service && npm install",
+    "install:payment": "cd services/payment-service && npm install",
+    "install:inventory": "cd services/inventory-service && npm install",
+    "install:notification": "cd services/notification-service && npm install",
+    "start:infrastructure": "./scripts/start-infrastructure.sh",
+    "start:services": "./scripts/run-services.sh",
+    "demo": "./scripts/demo-scenarios.sh",
+    "switch:components": "./scripts/switch-components.sh",
+    "cleanup": "./scripts/cleanup.sh",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "keywords": [
+    "dapr",
+    "microservices",
+    "ecommerce",
+    "demo",
+    "distributed-systems",
+    "event-driven",
+    "service-mesh"
+  ],
+  "author": "Otokar Demo Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hakkisagdic/otokar-demo.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

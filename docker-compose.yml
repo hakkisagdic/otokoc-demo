@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Infrastructure Services
+  redis:
+    image: redis:7-alpine
+    container_name: dapr-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - dapr-network
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: dapr-zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - dapr-network
+
+  # Alternative: PostgreSQL for state store (uncomment to use instead of Redis)
+  postgres:
+    image: postgres:15-alpine
+    container_name: dapr-postgres
+    environment:
+      POSTGRES_DB: dapr_state
+      POSTGRES_USER: dapr
+      POSTGRES_PASSWORD: dapr123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - dapr-network
+
+networks:
+  dapr-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+  postgres-data:
+  dapr-network:
+    driver: bridge
