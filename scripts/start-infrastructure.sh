@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting Otokar Dapr E-commerce Demo Infrastructure..."
+echo "🚀 Starting Otokoc Dapr E-commerce Demo Infrastructure..."
 
 # Check if Docker is running
 if ! docker info > /dev/null 2>&1; then

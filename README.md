@@ -1,4 +1,4 @@
-# Dapr E-Ticaret Demo Projesi
+# Otokoc Dapr E-Ticaret Demo Projesi
 
 Bu proje, Dapr'ın temel özelliklerini gösteren kapsamlı bir e-ticaret mikroservis demo'sudur.
 
@@ -64,8 +64,8 @@ Bu proje, Dapr'ın temel özelliklerini gösteren kapsamlı bir e-ticaret mikros
 
 1. **Repository'yi klonla:**
 ```bash
-git clone https://github.com/hakkisagdic/otokar-demo.git
-cd otokar-demo
+git clone https://github.com/hakkisagdic/otokoc-demo.git
+cd otokoc-demo
 ```
 
 2. **Dependencies yükle:**
@@ -304,12 +304,48 @@ dapr uninstall
 - [Blog](https://blog.dapr.io/)
 
 ### Bu Projede Kullanılan Teknolojiler
-- **Runtime**: Node.js 18+
-- **Framework**: Express.js
+- **Runtime**: Node.js 18+ / .NET 8
+- **Framework**: Express.js / ASP.NET Core
 - **State Store**: Redis, PostgreSQL
 - **Message Broker**: Redis Streams
 - **Tracing**: Zipkin
 - **Container**: Docker & Docker Compose
+
+## 🔄 Multi-Language Support
+
+Bu demo projesi hem **Node.js** hem de **.NET** implementasyonları içerir:
+
+### Node.js Services (services/)
+- Express.js tabanlı mikroservisler
+- @dapr/dapr SDK kullanımı
+- JavaScript/TypeScript desteği
+
+### .NET Services (services-dotnet/)
+- ASP.NET Core Web API tabanlı mikroservisler
+- Dapr .NET SDK kullanımı
+- C# 12 ve .NET 8 desteği
+
+### Servis Karşılaştırması
+| Service | Node.js | .NET |
+|---------|---------|------|
+| User Service | ✅ | ✅ |
+| Product Service | ✅ | ✅ |
+| Order Service | ✅ | 🚧 |
+| Payment Service | ✅ | 🚧 |
+| Inventory Service | ✅ | 🚧 |
+| Notification Service | ✅ | 🚧 |
+
+### .NET Services Çalıştırma
+```bash
+# .NET servisleri için
+cd services-dotnet/user-service
+dotnet run
+
+# Dapr ile çalıştırma
+dapr run --app-id user-service-dotnet --app-port 5001 \
+  --components-path ../../dapr-components \
+  -- dotnet run --urls=http://0.0.0.0:5001
+```
 
 ## 📝 Lisans
 

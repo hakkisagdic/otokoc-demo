@@ -1,5 +1,5 @@
 {
-  "name": "otokar-dapr-ecommerce-demo",
+  "name": "otokoc-dapr-ecommerce-demo",
   "version": "1.0.0",
   "description": "Comprehensive Dapr microservices e-commerce demonstration",
   "main": "index.js",
@@ -29,11 +29,11 @@
     "event-driven",
     "service-mesh"
   ],
-  "author": "Otokar Demo Team",
+  "author": "Otokoc Demo Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hakkisagdic/otokar-demo.git"
+    "url": "https://github.com/hakkisagdic/otokoc-demo.git"
   },
   "engines": {
     "node": ">=18.0.0",
